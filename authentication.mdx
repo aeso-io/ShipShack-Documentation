@@ -5,10 +5,8 @@ description: 'Learn how to authenticate your users'
 
 ShipShack uses [Auth.js](https://authjs.dev/) for authentication. Auth.js is a simple, secure, and easy-to-use authentication library that allows you to authenticate users in your application.
 
-By default, ShipShack uses "Magic Links" for the authentication process. Magic Links are a secure way to authenticate users without requiring them to remember a password. When a user signs up or logs in, they receive an email with a link that they can click to authenticate themselves.
-
-All that's required for "Magic Links" to work in ShipShack is a SMTP server. ShipShack uses SendGrid by default, but you can use any SMTP server that you prefer using the [Environment Variables](/environment) file.
-
 Auth.js supports over 80 providers, including Google, Facebook, GitHub, and more. To add more providers to your application, you can follow the instructions in the [Auth.js documentation](https://authjs.dev/getting-started/authentication/oauth).
+
+<Info>By default, ShipShack uses "Magic Links" for the authentication process. Magic Links are a secure way to authenticate users without requiring them to remember a password. When a user signs up or logs in, they receive an email with a link that they can click to authenticate themselves.</Info>
 
 By default, ShipShack places the provider configuration in `/src/app/server/auth.js`.

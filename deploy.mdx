@@ -3,96 +3,27 @@ title: 'Deploy'
 description: 'Learn how to preview changes locally'
 ---
 
-<Info>
-  **Prerequisite** You should have installed Node.js (version 18.10.0 or
-  higher).
-</Info>
+ShipShack can be deployed to the recommended hosting provider, Vercel, in just a few steps.
 
-Step 1. Install Mintlify on your OS:
-
-<CodeGroup>
-
-```bash npm
-npm i -g mintlify
-```
-
-```bash yarn
-yarn global add mintlify
-```
-
-</CodeGroup>
-
-Step 2. Go to the docs are located (where you can find `mint.json`) and run the following command:
-
-```bash
-mintlify dev
-```
-
-The documentation website is now available at `http://localhost:3000`.
-
-### Custom Ports
-
-Mintlify uses port 3000 by default. You can use the `--port` flag to customize the port Mintlify runs on. For example, use this command to run in port 3333:
-
-```bash
-mintlify dev --port 3333
-```
-
-You will see an error like this if you try to run Mintlify in a port that's already taken:
-
-```md
-Error: listen EADDRINUSE: address already in use :::3000
-```
-
-## Mintlify Versions
-
-Each CLI is linked to a specific version of Mintlify. Please update the CLI if your local website looks different than production.
-
-<CodeGroup>
-
-```bash npm
-npm i -g mintlify@latest
-```
-
-```bash yarn
-yarn global upgrade mintlify
-```
-
-</CodeGroup>
-
-## Deployment
-
-<Tip>
-  Unlimited editors available under the [Startup
-  Plan](https://mintlify.com/pricing)
-</Tip>
-
-You should see the following if the deploy successfully went through:
-
-<Frame>
-  <img src="/images/checks-passed.png" style={{ borderRadius: '0.5rem' }} />
-</Frame>
-
-## Troubleshooting
-
-Here's how to solve some common problems when working with the CLI.
-
-<AccordionGroup>
-  <Accordion title="Mintlify is not loading">
-    Update to Node v18. Run `mintlify install` and try again.
-  </Accordion>
-  <Accordion title="No such file or directory on Windows">
-Go to the `C:/Users/Username/.mintlify/` directory and remove the `mint`
-folder. Then Open the Git Bash in this location and run `git clone
-https://github.com/mintlify/mint.git`.
-
-Repeat step 3.
-
-  </Accordion>
-  <Accordion title="Getting an unknown error">
-    Try navigating to the root of your device and delete the ~/.mintlify folder.
-    Then run `mintlify dev` again.
-  </Accordion>
-</AccordionGroup>
-
-Curious about what changed in a CLI version? [Check out the CLI changelog.](/changelog/command-line)
+<Steps>
+  <Step title="Push your changes to a private repository">
+  Create a [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), or [Bitbucket](https://bitbucket.org/product) repository to store your code.
+  </Step>
+  <Step title="Connect your GitHub repository to Vercel in their portal">
+  Follow [Vercel's guide](https://vercel.com/docs/deployments/git#deploying-a-git-repository) to link your repository and deploy a version of your app.
+  </Step>
+  <Step title="Setup your production database">
+  Follow [Vercel's instructions](https://vercel.com/docs/storage/vercel-postgres/quickstart) on setting up a Postgres database.
+  </Step>
+  <Step title="Add all of your environment variables to Vercel">
+  Copy all of your environment variables from your `.env` file to the Vercel dashboard.
+  <Tip>Vercel allows you to copy all of your environment variables into the portal at once. Just copy all the variables and values you want and paste them into the "Key" field.</Tip>
+  <Warning>Don't forget to set your DATABASE_URL environment variable to the same value as the POSTGRES_URL value.</Warning>
+  </Step>
+  <Step title="Push a commit to initiate a deploy">
+  After you have set up your database and environment variables, push a commit to your repository to trigger a deploy. 
+  </Step>
+  <Step title="Visit your deployed app">
+  Once your app has been deployed, you can visit it at the URL provided by Vercel. Make sure to test that everything is working before sending it to potential customers! 😃
+  </Step>
+</Steps>

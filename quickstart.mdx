@@ -7,51 +7,45 @@ import Database from '/snippets/database.mdx';
 
 ## Setup your local machine for development
 
-### Step 1: Install dependencies
+<Steps>
+  <Step title="Install Dependencies">
+  ShipShack uses the `bun` package manager to install dependencies. 
 
-ShipShack uses the `bun` package manager to install dependencies. 
+  You can install it by following [these instructions](https://bun.sh/docs/installation).
 
-You can install it by following [these instructions](https://bun.sh/docs/installation).
+  When `bun` is installed, run:
 
-When `bun` is installed, run:
+  ```bash
+  bun install
+  ```
+  </Step>
+  <Step title="Setup a local database">
+    <Database />
+  </Step>
+  <Step title="Setup your environment variables">
+    Using the `.env.example` file as an example, create a `.env` file in the root of the project.
 
-```bash
-bun install
-```
+    Fill in all of the required environment variables before starting your local development. This will involve signing up for an account and getting API keys from several services that will enhance the functionality of your app. For example:
 
----
+    1. [SendGrid](https://sendgrid.com/) for authentication emails and marketing campaigns
+    2. [Stripe](https://stripe.com/) for handling payments
+    3. [PostHog](https://posthog.com/) for analytics
+    4. [Sentry](https://sentry.io/) for error tracking
 
-### Step 2: Setup a local database
+    <Info>
+      **A note on authentication providers:** You may also need to setup authentication providers like Google, Facebook, or GitHub. These providers require you to create an application and get a client ID and secret. This process is documented on the [Authentication](/authentication) page.
+    </Info>
 
-<Database />
+    For a full list of environment variables, see the [Environment Variables](/environment) page.
+  </Step>
+  <Step title="Start your local development server">
+    Once you have installed all dependencies, setup your database, and configured your environment variables, you can start your local development server by running:
 
----
+    ```bash
+    bun run dev
+    ```
 
-### Step 3: Setup your environment variables
+    You can now visit your local development server at `http://localhost:3000` to see your app in action!
+  </Step>
+</Steps>
 
-Using the `.env.example` file as an example, create a `.env` file in the root of the project.
-
-Fill in all of the required environment variables before starting your local development. This will involve signing up for an account and getting API keys from several services that will enhance the functionality of your app. For example:
-
-1. [SendGrid](https://sendgrid.com/) for authentication emails and marketing campaigns
-2. [Stripe](https://stripe.com/) for handling payments
-3. [PostHog](https://posthog.com/) for analytics
-4. [Sentry](https://sentry.io/) for error tracking
-
-<Info>
-  **A note on authentication providers:** You may also need to setup authentication providers like Google, Facebook, or GitHub. These providers require you to create an application and get a client ID and secret. This process is documented on the [Authentication](/authentication) page.
-</Info>
-
-For a full list of environment variables, see the [Environment Variables](/environment) page.
-
----
-
-### Step 4: Start your local development server
-
-Once you have installed all dependencies, setup your database, and configured your environment variables, you can start your local development server by running:
-
-```bash
-bun run dev
-```
-
-You can now visit your local development server at `http://localhost:3000` to see your app in action!
