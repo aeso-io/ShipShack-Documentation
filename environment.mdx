@@ -1,0 +1,90 @@
+---
+title: 'Environment Variables'
+description: 'Learn how to configure your project for different environments'
+---
+
+<Info>
+  **Note** An example environment configuration file can be found at the root of the repository at `.env.example`.
+</Info>
+
+<ResponseField name="DATABASE_URL" type="string" required>
+PostgreSQL database connection URL. Used to connect to your database.
+<br/>Example: postgresql://postgres:MyPassword@localhost:5432/shipshack
+
+
+</ResponseField>
+<ResponseField name="NEXTAUTH_SECRET" type="string" required>
+Secret key for Next Auth session management. Ensures session security.
+<br/>Example: YourRandomGeneratedSecretHere
+
+To generate a new auth secret, paste the result of the following command as the value for this environment value:
+
+```bash
+openssl rand -base64 32
+```
+
+</ResponseField>
+<ResponseField name="NEXTAUTH_URL" type="string" required>
+URL for Next Auth setup. Points to your authentication base URL.
+When you are developing locally on your machine, use `http://localhost:3000`. When you deploy your app, use the URL of your deployment.
+
+</ResponseField>
+<ResponseField name="SENDGRID_API_KEY" type="string" required>
+API key for SendGrid email services. Used for email delivery.
+
+</ResponseField>
+<ResponseField name="SENDGRID_MARKETING_LIST_ID" type="string">
+Marketing list ID for SendGrid. Used for targeted email campaigns.
+<br/>Example: `2ce741fa-bec8-45ab-a87e-19c6301d1e62`
+
+</ResponseField>
+<ResponseField name="EMAIL_SERVER_HOST" type="string" required>
+SMTP server host for email sending. Configures the SMTP server.
+<br/>Example: `smtp.sendgrid.net`
+
+</ResponseField>
+<ResponseField name="EMAIL_SERVER_PORT" type="number" required>
+SMTP server port for email sending. Specifies the port number.
+<br/>Example: `465`
+
+</ResponseField>
+<ResponseField name="EMAIL_SERVER_USER" type="string" required>
+SMTP server username for email sending. If you are sending authentication emails using SendGrid, hardcode this value to `apikey` (the string, not your actual API key!).
+
+</ResponseField>
+<ResponseField name="EMAIL_SERVER_PASSWORD" type="string" required>
+SMTP server password for email sending. Holds SMTP authentication details. If you are sending authentication emails using SendGrid, this will be your API key.
+<br/>Example: `SendGridAPIKeyValue`
+
+</ResponseField>
+<ResponseField name="EMAIL_FROM" type="string" required>
+Sender email address verified by SendGrid. Used as the from address in emails. **Note: This must be a "verified email" in the SendGrid portal, or your emails will not be delivered.**
+<br/>Example: `noreply@yourdomain.com`
+
+</ResponseField>
+<ResponseField name="NEXT_PUBLIC_POSTHOG_KEY" type="string" required>
+PostHog analytics key. Enables analytics tracking for your application.
+<br/>Example: `phx_FyJxXXXXXX`
+
+</ResponseField>
+<ResponseField name="NEXT_PUBLIC_POSTHOG_HOST" type="string" required>
+PostHog server host URL. Points to your PostHog analytics server.
+<br/>Example: https://app.posthog.com
+
+</ResponseField>
+<ResponseField name="SENTRY_AUTH_TOKEN" type="string" required>
+Sentry authentication token. Used for integrating with Sentry.
+<br/>Example: `f3e2b2xxxxxx`
+
+</ResponseField>
+<ResponseField name="SENTRY_ORGANIZATION_ID" type="string" required>
+Sentry organization identifier. Specifies your Sentry organization.
+<br/>Example: `sentry_org_123`
+
+</ResponseField>
+<ResponseField name="SENTRY_PROJECT_ID" type="string" required>
+Sentry project identifier. Specifies your Sentry project.
+<br/>Example: `sentry_project_456`
+
+</ResponseField>
+
