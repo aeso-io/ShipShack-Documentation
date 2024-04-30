@@ -33,11 +33,6 @@
   ],
   "anchors": [
     {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://shipshack.io/blog"
-    },
-    {
       "name": "Support",
       "icon": "envelope",
       "url": "mailto:support@aesosoftware.com"
@@ -48,8 +43,7 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "quickstart",
-        "environment"
+        "quickstart"
       ]
     },
     {
